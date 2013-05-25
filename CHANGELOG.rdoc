@@ -1,0 +1,54 @@
+= CHANGELOG
+
+== 0.3.0
+* Move design to Twitter bootstrap
+* Find by key part fixes
+* Find by value fixes
+* Cmtool integration support
+* Better untranslated filtering
+* Better tests
+
+== 0.2.0 (2012-04-14)
+* Allow per_page specification
+* Add find by key part option
+* Add find by value option
+* Improve styling
+* Add to Travis-CI for testing
+
+== 0.0.9 (2012-03-08)
+* Add security when there is a current_user assigned wich responds to is_admin
+
+== 0.0.8 (2011-11-30)
+* Better namespaced translation of own application
+* Overwrite activemodel error messages, only one method is allowed
+
+== 0.0.6 (2011-07-10)
+* Fix adding new translation
+* Ensure working on configured database (long story)
+
+== 0.0.5 (2011-07-10)
+* Many changes, read carefully
+* Rails >= 3.1 only, as mountable engine
+* Agressive caching for performance
+* Separation between store and translation
+* Engine with styling
+* Untranslated string handling
+* Untranslated string export
+* Allow json attributes
+
+== 0.0.4 (2011-05-21)
+* Better overview link in edit mode
+* Add export of current offset for yml, csv and json
+* Add import for yml
+* Better manual
+* Add deletion of current offset without limits
+* Add modified backend based on I18n key value backend
+
+== 0.0.3 (2011-05-16)
+* CouchI18n.import_from_yaml does not underscore the keys anymore
+* Better redirects for keys with spaces and dashes
+* Caching! Huge performance gain
+* Fixed ranges query for keys with spaces
+
+== 0.0.2 (2011-05-15)
+* May be seen as initial, many fixes

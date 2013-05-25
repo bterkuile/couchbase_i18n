@@ -1,0 +1,57 @@
+---
+en:
+  couch_i18n:
+    action:
+      edit:
+        title: Edit translation
+        label: Edit
+      destroy:
+        label: Delete
+        offset_link: Delete all from offset
+        successful: '%{model} is successfully removed'
+      index:
+        label: Translations
+        title: Translations
+      new:
+        label: New
+      update:
+        button_text: Update
+        successful: '%{model} is successfully updated'
+      create:
+        button_text: Add
+        successful: '%{model} is successfully created'
+    export:
+      execute: Execute
+      untranslated: Untranslated
+      label: Export
+      from_offset: 'Export from offset: "%{offset}"'
+    general:
+      are_you_sure: 'Are you sure?'
+      boolean_false: 'no'
+      boolean_true: 'yes'
+      go_to_offset: Go to offset
+      go_to_zero_offset: x
+      find_part: Find key part
+      find_value: Find value
+      none_found: No translations found
+      site_title: CouchI18n translations
+      untranslated_label: Untranslated
+      close: Close
+      is_json: 'Is JSON?'
+    import:
+      button: Import
+      label: Import
+      description: If you import keys, existing keys will be overwritten
+  activemodel:
+    models:
+      couch_i18n:
+        translation: Translation
+      plural:
+        couch_i18n:
+          translation: Translations
+    attributes:
+      couch_i18n:
+        translation:
+          key: Key
+          value: Value
+          translated: 'Translated?'

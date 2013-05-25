@@ -1,0 +1,84 @@
+html, body{
+}
+body{
+}
+h1, h2, h3, h4, h5, h6{
+}
+h1{
+}
+form{
+  margin-bottom: 0; /* bootstrap fix */
+}
+#page-wrapper{
+  width: 922px;
+  margin: 10px auto;
+  border: 1px solid #555;
+  background-color: white;
+}
+#page-content{
+  padding: 8px;
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  .destroy-link{
+    float: right;
+    a{
+      background-color: #800;
+      color: white;
+      font-weight: bold;
+      padding: 4px 10px;
+    }
+  }
+}
+#page-links{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  a{
+    padding: 4px;
+    border: 1px dotted #555;
+    &:hover {
+      background-color: #ddd;
+      border-style: solid;
+    }
+  }
+}
+.untranslated-label{
+  display: inline;
+}
+.offset-navigation-block{
+  border-style: double;
+  border-color: #444;
+  border-left-width: 0;
+  border-right-width: 0;
+  padding: 5px 0;
+  margin-top: 5px;
+  .offset-navigation-deeper, .offset-navigation-higher{
+    a{
+      float: left;
+      margin-right: 5px;
+      margin-top: 5px;
+      padding: 4px;
+      border: 1px solid #aaa;
+      &:hover {
+        background-color: #ddd;
+        border-color: black;
+      }
+    }
+  }
+  .offset-navigation-form{
+    margin-top: 5px;
+  }
+}
+.clearing{
+  clear: both;
+}
+
+.pagination{
+  ul{
+    list-style: none;
+    li{
+      float: left;
+    }
+  }
+}
