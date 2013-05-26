@@ -7,11 +7,18 @@ require 'rspec/autorun'
 require 'factory_girl'
 require 'capybara/rspec'
 require 'devise'
+require 'couchbase'
 #require 'cmtool'
-
 class CouchbaseI18n::Translation
   def inspect
-    "<#{key} ..>"
+    "<#{translation_key}, id: #{id} ..>"
+  end
+end
+
+class Couchbase::View
+  alias :old_initialize :initialize
+  def initialize(bucket, endpoint, params = {})
+    old_initialize(bucket, endpoint, params.merge(stale: false))
   end
 end
 
@@ -34,10 +41,6 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = true
   config.render_views = true
 
-  config.before :each do
-    CouchPotato.couchrest_database.recreate!
-  end
-
   config.before :all, type: :controller do
     #render_views 
   end
@@ -48,6 +51,11 @@ RSpec.configure do |config|
     #Capybara.current_driver = :selenium
     #sign_in_user_through_request
   end
+
+  config.before :each do
+    CouchbaseI18n::Translation.bucket.flush
+  end
+
   config.after :each, type: :request do
     visit "/users/sign_out"
   end

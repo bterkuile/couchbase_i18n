@@ -1,12 +1,12 @@
 !!!
 %html
   %head
-    %title= defined?(site_title) ? site_title : I18n.t('couch_i18n.general.site_title')
+    %title= defined?(site_title) ? site_title : I18n.t('couchbase_i18n.general.site_title')
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     = csrf_meta_tags
-    = stylesheet_link_tag 'couch_i18n/application'
-    = javascript_include_tag 'couch_i18n/application'
+    = stylesheet_link_tag 'couchbase_i18n/application'
+    = javascript_include_tag 'couchbase_i18n/application'
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     = yield :head
   %body
@@ -20,7 +20,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            %a.brand{href: couch_i18n.root_path}= yield :title
+            %a.brand{href: couchbase_i18n.root_path}= yield :title
     .container
       = render 'alerts'
       = yield

@@ -1,6 +1,6 @@
 ---
 en:
-  couch_i18n:
+  couchbase_i18n:
     action:
       edit:
         title: Edit translation
@@ -34,7 +34,7 @@ en:
       find_part: Find key part
       find_value: Find value
       none_found: No translations found
-      site_title: CouchI18n translations
+      site_title: CouchbaseI18n translations
       untranslated_label: Untranslated
       close: Close
       is_json: 'Is JSON?'
@@ -44,13 +44,13 @@ en:
       description: If you import keys, existing keys will be overwritten
   activemodel:
     models:
-      couch_i18n:
+      couchbase_i18n:
         translation: Translation
       plural:
-        couch_i18n:
+        couchbase_i18n:
           translation: Translations
     attributes:
-      couch_i18n:
+      couchbase_i18n:
         translation:
           key: Key
           value: Value

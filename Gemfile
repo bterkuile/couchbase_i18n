@@ -20,12 +20,13 @@ end
 group :development do
   gem 'pry-rails'
   #gem 'cmtool', github: 'bterkuile/cmtool'
-  #gem 'devise', '2.0.4'
+  gem 'devise' #, '2.0.4'
   #gem 'devise_simply_stored'
 end
 group :test do
   gem 'pry-rails'
   gem 'steak'
-  gem 'devise', '2.0.4'
+  gem 'devise' #, '2.0.4'
+  gem 'sqlite3'
   gem 'factory_girl_rails'
 end
