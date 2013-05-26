@@ -118,12 +118,12 @@ module CouchbaseI18n
     # POST /couchbase_i18n/translations/import
     # Import yml files
     def import
-      redirect_to({:action => :index, :offset => params[:offset]}, :alert => I18n.t('couchbase_i18n.translation.no import file given')) and return unless params[:importfile].present?
+      redirect_to({:action => :index, :offset => params[:offset]}, :alert => I18n.t('couchbase_i18n.translation.no_import_file_given')) and return unless params[:importfile].present?
       filename = params[:importfile].original_filename
       extension = filename.sub(/.*\./, '')
       if extension == 'yml'
         hash = YAML.load_file(params[:importfile].tempfile.path) rescue nil
-        redirect_to({:action => :index, :offset => params[:offset]}, :alert => I18n.t('couchbase_i18n.translation.cannot parse yaml')) and return unless hash
+        redirect_to({:action => :index, :offset => params[:offset]}, :alert => I18n.t('couchbase_i18n.translation.cannot_parse_yaml')) and return unless hash
         CouchbaseI18n.traverse_flatten_keys(hash).each do |key, value|
           existing = CouchbaseI18n::Translation.find_by_translation_key(key)
           if existing
@@ -137,21 +137,29 @@ module CouchbaseI18n
           end
         end 
       else
-        redirect_to({:action => :index, :offset => params[:offset]}, :alert => I18n.t('couchbase_i18n.translation.no proper import extension', :extension => extension)) and return 
+        redirect_to({:action => :index, :offset => params[:offset]}, :alert => I18n.t('couchbase_i18n.translation.no_proper_import_extension', :extension => extension)) and return 
       end
-      redirect_to({:action => :index, :offset => params[:offset]}, :notice => I18n.t('couchbase_i18n.translation.file imported', :filename => filename))
+      redirect_to({:action => :index, :offset => params[:offset]}, :notice => I18n.t('couchbase_i18n.translation.file_imported', :filename => filename))
     end
 
     # Very dangarous action, please handle this with care, large removals are supported!
     # DELETE /couchbase_i18n/translations/destroy_offset?...
     def destroy_offset
       if params[:offset].present?
-        @translations = CouchbaseI18n::Translation.with_offset(params[:offset])
+        if params[:untranslated].present?
+          @translations = CouchbaseI18n::Translation.untranslated_with_offset(params[:offset])
+        else
+          @translations = CouchbaseI18n::Translation.with_offset(params[:offset])
+        end
       else
-        @translations = CouchbaseI18n::Translation.all
+        if params[:untranslated].present?
+          @translations = CouchbaseI18n::Translation.untranslated
+        else
+          @translations = CouchbaseI18n::Translation.all
+        end
       end
       @translations.map(&:destroy)
-      redirect_to({:action => :index}, :notice => I18n.t('couchbase_i18n.translation.offset deleted', :count => @translations.size, :offset => params[:offset]))
+      redirect_to({:action => :index}, :notice => I18n.t('couchbase_i18n.translation.offset_deleted', :count => @translations.size, :offset => params[:offset]))
     end
 
     private

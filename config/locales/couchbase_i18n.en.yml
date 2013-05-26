@@ -42,6 +42,12 @@ en:
       button: Import
       label: Import
       description: If you import keys, existing keys will be overwritten
+    translation:
+      offset_deleted: '%{count} files from offset %{offset} are deleted'
+      file_imported: Translation file imported successfully
+      no_proper_import_extension: The import file must be a YAML translation file
+      cannot_parse_yaml: "The import file could not be parsed as proper YAML"
+      no_import_file_given: "No import file given"
   activemodel:
     models:
       couchbase_i18n:

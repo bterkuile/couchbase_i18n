@@ -11,7 +11,7 @@ module CouchbaseI18n
         @per_page = per_page
       end
 
-      delegate :[], to: :entries
+      delegate :[], :size, to: :entries
 
       alias :limit_value :per_page
 

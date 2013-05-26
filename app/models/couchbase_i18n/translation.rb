@@ -44,6 +44,10 @@ module CouchbaseI18n
       end
     end
 
+    def self.find_by_translation_key(key)
+      by_translation_key(key: key, limit: 1).entries.first
+    end
+
     def self.paginate(options={}, &block)
       if ([:page, :per_page] & options.keys).any? # Pagination active
         page = [options.delete(:page).to_i, 1].max
@@ -153,6 +157,10 @@ module CouchbaseI18n
         }
       end
       higher_translation_keys
+    end
+
+    def destroy
+      delete
     end
   end
 end
