@@ -53,8 +53,8 @@ module CouchbaseI18n
         page = [options.delete(:page).to_i, 1].max
         per_page = options.delete(:per_page).to_i # Can be string
         per_page = 30 unless per_page > 0 # Nill will be 0
-        total_count = block.call(options).count
-        result = block.call(options.merge(skip: (page - 1)*per_page, limit: per_page, reduce: false))
+        total_count = block.call(options.merge(reduce: true, include_docs: false)).count
+        result = block.call(options.merge(skip: (page - 1)*per_page, limit: per_page, reduce: false, include_docs: true))
       else
         page = 1
         per_page = 0
