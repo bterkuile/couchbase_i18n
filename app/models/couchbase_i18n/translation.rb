@@ -28,6 +28,10 @@ module CouchbaseI18n
       end
     end
 
+    def self.count(options = {})
+      all_documents(options).count
+    end
+
     def self.get_translation_keys_by_level(level = 0, options = {})
       view = with_translation_key_array(options.merge(reduce: true, include_docs: false, group_level: level.succ))
       # data = data.select{|h| h["key"].size > level } # Only select ones that have a deeper nesting
