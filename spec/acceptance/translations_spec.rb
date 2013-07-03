@@ -1,3 +1,4 @@
+=begin MOVED TO GHERKIN (turnip)
 require 'acceptance/acceptance_helper'
 
 feature 'Translations', %q{
@@ -110,3 +111,4 @@ feature 'Translations', %q{
   end
 
 end
+=end

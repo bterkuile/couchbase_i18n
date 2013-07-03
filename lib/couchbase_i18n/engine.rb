@@ -12,5 +12,9 @@ module CouchbaseI18n
         end
       end
     end
+
+    initializer "setup_couchbase_i18n_paths", before: 'couchbase.upgrade_design_documents' do
+
+    end
   end
 end

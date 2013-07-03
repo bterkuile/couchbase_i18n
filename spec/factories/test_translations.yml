@@ -1,0 +1,9 @@
+nl:
+  prefix:
+    middle:
+      last_key: Something
+en:
+  prefix:
+    middle:
+      last_key: Something
+      other_key: Other key

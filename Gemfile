@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'rails', '3.2.13' #     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '4.0.0' #     :git => 'git://github.com/rails/rails.git'
 gem 'jquery-rails'
 
 #gem 'couch_potato', :git => 'git://github.com/bterkuile/couch_potato.git'
@@ -21,11 +21,13 @@ group :development do
   gem 'pry-rails'
   #gem 'cmtool', github: 'bterkuile/cmtool'
   gem 'devise' #, '2.0.4'
-  #gem 'devise_simply_stored'
 end
 group :test do
   gem 'pry-rails'
-  gem 'steak'
+  gem 'rspec-rails'
+  gem 'capybara-webkit'
+  gem 'launchy'
+  gem 'turnip'
   gem 'devise' #, '2.0.4'
   gem 'sqlite3'
   gem 'factory_girl_rails'

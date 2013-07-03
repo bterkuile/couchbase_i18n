@@ -3,9 +3,10 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'factory_girl'
 require 'capybara/rspec'
+require 'turnip/rspec'
+require 'turnip/capybara'
 require 'devise'
 require 'couchbase'
 #require 'cmtool'
@@ -27,6 +28,7 @@ ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 # in spec/support/ and its subdirectories.
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/factories/**/*.rb")].each {|f| require f }
+Dir.glob("spec/acceptance/steps/**/*steps.rb") { |f| load f, true }
 
 I18n.locale = :en
 #Devise.stretches = 1
